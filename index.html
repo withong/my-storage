@@ -108,10 +108,18 @@
             window.location.reload();
         })
 
-        let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+//        let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+//
+//        fetch(url).then(res => res.json()).then(data => {
+//            let temp = data["temp"];
+//            $("#temperature").text(temp);
+//        })
 
-        fetch(url).then(res => res.json()).then(data => {
-            let temp = data["temp"];
+        let weatherUrl = "https://wttr.in/Seoul?format=j1";
+
+        fetch(weatherUrl).then(res => res.json()).then(data => {
+            let temp = data["current_condition"][0]["temp_C"];
+            console.log(temp);
             $("#temperature").text(temp);
         })
 
